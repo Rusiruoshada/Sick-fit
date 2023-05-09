@@ -1,11 +1,13 @@
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import { createAuth } from '@keystone-next/auth';
-import { User } from './schemas/User';
-import 'dotenv/config';
 import {
   withItemData,
   statelessSessions,
 } from '@keystone-next/keystone/session';
+import { User } from './schemas/User';
+import 'dotenv/config';
+import { Product } from './schemas/Product';
+import { ProductImage } from './schemas/ProductImage';
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone-sick-fits';
@@ -39,6 +41,8 @@ export default withAuth(
     },
     lists: createSchema({
       User,
+      Product,
+      ProductImage,
       // Schema file go in here
     }),
     ui: {
