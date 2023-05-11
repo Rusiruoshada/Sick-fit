@@ -5,10 +5,10 @@ const NavStyles = styled.ul`
   padding: 0;
   display: flex;
   justify-self: end;
-  font-size: 2rem;
+  font-size: 1.2rem;
   a,
   button {
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
     position: relative;
@@ -19,7 +19,7 @@ const NavStyles = styled.ul`
     border: 0;
     cursor: pointer;
     @media (max-width: 700px) {
-      font-size: 10px;
+      font-size: 1rem;
       padding: 0 10px;
     }
     &:before {
@@ -48,7 +48,7 @@ const NavStyles = styled.ul`
     &:hover,
     &:focus {
       outline: none;
-      text-decoration:none;
+      text-decoration: none;
       &:after {
         width: calc(100% - 60px);
       }
@@ -60,8 +60,8 @@ const NavStyles = styled.ul`
   @media (max-width: 1300px) {
     border-top: 1px solid var(--lightGray);
     width: 100%;
-    justify-content: center;
-    font-size: 1.5rem;
+    justify-content: end;
+    font-size: 1.2rem;
   }
 `;
 
