@@ -3,7 +3,8 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 import Product from './Product';
 
-const All_PRODUCTS_QUERY = gql`
+// eslint-disable-next-line camelcase
+export const All_PRODUCTS_QUERY = gql`
   query All_PRODUCTS_QUERY {
     allProducts {
       id
