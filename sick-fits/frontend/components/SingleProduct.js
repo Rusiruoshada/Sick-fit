@@ -8,12 +8,13 @@ const ProductStyle = styled.div`
   display: grid;
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
-  min-height: 800px;
-  max-width: var(--maxWidth);
   justify-content: center;
   align-items: top;
-  gap: 2rem;
+  gap: 4rem;
   img {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
     width: 100%;
     object-fit: contain;
   }
