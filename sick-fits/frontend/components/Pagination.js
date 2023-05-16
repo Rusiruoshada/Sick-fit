@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useQuery } from '@apollo/client';
 import PaginationStyles from './styles/PaginationStyles';
 import DisplayError from './ErrorMessage';
+import { perPage } from '../config';
 
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
@@ -18,15 +19,23 @@ export default function Pagination({ page }) {
   if (loading) return 'Loading...';
   if (error) return <DisplayError error={error} />;
   const { count } = data._allProductsMeta;
+  const pageCount = Math.ceil(count / perPage);
+
   return (
     <PaginationStyles>
       <Head>
         <title>Sick Fits - page {page} of ___</title>
       </Head>
-      <Link href="/product">&larr; Prev</Link>
-      <p>Page __ of __ </p>
+      <Link href={`/products/${page - 1}`}>
+        <a aria-disabled={page <= 1}>&larr; Prev</a>
+      </Link>
+      <p>
+        Page {page} of {pageCount}{' '}
+      </p>
       <p>{count} Items Total</p>
-      <Link href="/product">&rarr; Next</Link>
+      <Link href={`/products/${page + 1}`}>
+        <a aria-disabled={page >= pageCount}>Next &rarr;</a>
+      </Link>
     </PaginationStyles>
   );
 }
