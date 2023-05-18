@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 
-export const CREATE_USER_QUERY = gql`
+export const CURRENT_USER_QUERY = gql`
   query {
     authenticatedItem {
       ... on User {
@@ -14,6 +14,6 @@ export const CREATE_USER_QUERY = gql`
 `;
 
 export function useUser() {
-  const { data } = useQuery(CREATE_USER_QUERY);
+  const { data } = useQuery(CURRENT_USER_QUERY);
   return data?.authenticatedItem;
 }
