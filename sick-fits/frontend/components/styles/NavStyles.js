@@ -20,7 +20,7 @@ const NavStyles = styled.ul`
     cursor: pointer;
     @media (max-width: 700px) {
       font-size: 1rem;
-      padding: 0 10px;
+      padding: 0 15px;
     }
     &:before {
       content: '';
@@ -50,10 +50,13 @@ const NavStyles = styled.ul`
       outline: none;
       text-decoration: none;
       &:after {
-        width: calc(100% - 60px);
+        width: calc(100% - 30px);
       }
       @media (max-width: 700px) {
         width: calc(100% - 10px);
+      }
+      @media (max-width: 699px) {
+        width: 100px;
       }
     }
   }
@@ -62,6 +65,9 @@ const NavStyles = styled.ul`
     width: 100%;
     justify-content: end;
     font-size: 1.2rem;
+  }
+  @media (max-width: 620px) {
+    visibility: hidden;
   }
 `;
 
