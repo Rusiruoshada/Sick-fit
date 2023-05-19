@@ -58,7 +58,7 @@ export default withAuth(
     }),
     ui: {
       // show the UI only for people who pass the test
-      isAccessAllowed: ({ session }) => !!session?.data,
+      isAccessAllowed: ({ session }) => !! session?.data,
     },
     session: withItemData(statelessSessions(sessionConfig), {
       // graphQL Query
