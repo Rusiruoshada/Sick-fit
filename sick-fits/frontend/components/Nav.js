@@ -9,6 +9,7 @@ function Nav() {
   const user = useUser();
   const signOut = () => !useUser;
   const { openCart } = useCart();
+
   return (
     <NavStyles>
       <Link href="/products">Products</Link>
