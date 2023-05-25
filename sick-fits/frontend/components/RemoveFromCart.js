@@ -20,9 +20,21 @@ const RemoveButton = styled.button`
     cursor: pointer;
   }
 `;
+
+const update = (cache, payload) => {
+  cache.evict(cache.identify(payload.data.deleteCartItem));
+};
+
 export default function RemoveFromCart({ id }) {
   const [removeItem, { loading, error }] = useMutation(REMOVE_CART_ITEM, {
     variables: { id },
+    update,
+    // optimisticResponse: {
+    //   deleteCartItem: {
+    //     __typename: 'CartItem',
+    //     id,
+    //   },
+    // },
   });
   if (error) {
     return alert('Something went wrong, try again!');
