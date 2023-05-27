@@ -10,7 +10,7 @@ async function addToCart(
   { productId }: { productId: string },
   context: KeystoneContext
 ): Promise<CartItemCreateInput> {
-  console.log('ADDING TO CART!');
+  console.log('ADDING TO CART!'); 
   // 1. Query the current user see if they are signed in
   const sesh = context.session as Session;
   if (!sesh.itemId) {

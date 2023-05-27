@@ -16,6 +16,6 @@ export const User = list({
         itemView: { fieldMode: 'read' },
       },
     }),
-    // TODO
+    orders: relationship({ ref: 'Order.user', many: true }),
   },
 });
