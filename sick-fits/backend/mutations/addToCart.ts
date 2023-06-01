@@ -38,7 +38,7 @@ async function addToCart(
       data: { quantity: existingCartItem.quantity + 1 },
     });
   }
-  // 4. if it isn't, create a new cart item!
+  // 4.1. if it isn't, create a new cart item!
   return await context.lists.CartItem.createOne({
     data: {
       product: { connect: { id: productId } },
