@@ -62,6 +62,32 @@ async function checkout(
   throw new Error(err.message);
  });
  console.log(charge);
+ // 5. convert the cartItem to orderItem
+ const orderItems = cartItems.map(cartItem => {
+  const orderItem = {
+    name: cartItem.product.name,
+    description: cartItem.product.description,
+    price: cartItem.product.price,
+    quantity: cartItem.quantity,
+    photo: { connect: {id: cartItem.product.photo.id}},
+  }
+  return orderItem;
+ });
+ // 6. create the orders and return it
+ const order = await context.lists.Order.createOne({
+  data: {
+    total: charge.amount,
+    charge: charge.id,
+    items: { create: orderItems },
+    user: { connect: { id: userId }}
+  }
+ });
+ // 7. clean up any old cart item
+ const cartItemIds = cartItems.map(cartItem => cartItem.id);
+ await context.lists.CartItem.deleteMany({
+  ids: cartItemIds
+ });
+ return order;
 }
 
 export default checkout;
