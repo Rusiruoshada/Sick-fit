@@ -11,9 +11,9 @@ export const Role = list({
     delete: permissions.canManageRoles,
   },
   ui: {
-    hideCreate: (args) => !Permissions.canManageRoles(args),
-    hideDelete: (args) => !Permissions.canManageRoles(args),
-    isHidden: (args) => !Permissions.canManageRoles(args),
+    hideCreate: (args) => !permissions.canManageRoles(args),
+    hideDelete: (args) => !permissions.canManageRoles(args),
+    isHidden: (args) => !permissions.canManageRoles(args),
   },
   fields: {
     name: text({ isRequired: true }),
