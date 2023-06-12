@@ -34,9 +34,9 @@ const CREATE_PRODUCT_MUTATION = gql`
 export default function CreateProduct() {
   const { input, handleChange, clearForm, resetForm } = useForm({
     image: '',
-    name: 'Nice Shoes',
-    price: 34234,
-    description: 'These are the best shoes!',
+    name: 'Enter product name',
+    price: 'Price',
+    description: 'Enter your description',
   });
   const [createProduct, { loading, error, data }] = useMutation(
     CREATE_PRODUCT_MUTATION,
@@ -57,16 +57,6 @@ export default function CreateProduct() {
     >
       <DisplayError error={error} />
       <fieldset disabled={loading} aria-busy={loading}>
-        <label htmlFor="image">
-          Image
-          <input
-            required
-            type="file"
-            id="image"
-            name="image"
-            onChange={handleChange}
-          />
-        </label>
         <label htmlFor="name">
           Name
           <input
@@ -86,6 +76,16 @@ export default function CreateProduct() {
             name="price"
             placeholder="price"
             value={input.price}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="image">
+          Image
+          <input
+            required
+            type="file"
+            id="image"
+            name="image"
             onChange={handleChange}
           />
         </label>
